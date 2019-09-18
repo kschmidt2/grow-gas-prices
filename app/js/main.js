@@ -79,13 +79,13 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         tooltip: {
             shadow: false,
-            padding: 10,
+            padding: 10
         },
         annotations: [{
             labels: [{
                 point: {
-                    x: 1567900800000, // timestamp
-                    y: 2.5623, // value
+                    x: 1567814400000, // timestamp
+                    y: 2.5651, // value
                     xAxis: 0, // yAxis INDEX
                     yAxis: 0 // xAxis INDEX
                 },
@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }],
             shapes: [{
                 point: {
-                    x: 1567900800000, // timestamp
-                    y: 2.5623, // value
+                    x: 1567814400000, // timestamp
+                    y: 2.5651, // value
                     xAxis: 0, // yAxis INDEX
                     yAxis: 0 // xAxis INDEX
                   },

@@ -23,7 +23,7 @@ Highcharts.setOptions({
 document.addEventListener('DOMContentLoaded', function () {
     const myChart = Highcharts.chart('chart-container', {
         chart: {
-            type: 'bar',
+            type: 'line',
             styledMode: true,
             spacingBottom: 25,
             spacingRight: 100
@@ -32,60 +32,79 @@ document.addEventListener('DOMContentLoaded', function () {
             text: null
         },
         data: {
-            googleSpreadsheetKey: '1YOKb5l2VM4aAB2r20N_1aT_1vEajYrP3U-U3A6lZbC0'
+            googleSpreadsheetKey: '1-p2jXiiozwOOlTTzTCFBQSu6L7g9bOqWJuvTCrLKG-o'
         },
-        // for bar charts only
         plotOptions: {
             series: {
-                groupPadding: 0.1
-            } 
+                lineWidth: 1,
+                // clip: false,
+                marker: {
+                    enabled: false,
+                    symbol: 'circle',
+                    fillColor: '#ffffff',
+                    states: {
+                        hover: {
+                            fillColor: '#ffffff'
+                        }
+                    }
+                }
+            }
         },
-        // for line charts only
-        // plotOptions: {
-        //     series: {
-        //         lineWidth: 1,
-        //         // clip: false,
-        //         marker: {
-        //             enabled: false,
-        //             symbol: 'circle',
-        //             fillColor: '#ffffff',
-        //             states: {
-        //                 hover: {
-        //                     fillColor: '#ffffff'
-        //                 }
-        //             }
-        //         }
-        //     }
-        // },
         legend: {
-            align: 'right',
-            symbolRadius: 0,
-            verticalAlign: 'top',
-            x: 10,
-            itemMarginTop: -10
+            enabled: false
         },
         xAxis: {
             labels: {
                 style: {
                     whiteSpace: 'nowrap'
-                }
+                },
+                format: '{value:%b. %e}'
             },
-            tickLength: 5
+            tickLength: 5,
+            tickInterval: 7 * 24 * 3600 * 1000
         },
         yAxis: {
             title: false,
             labels: {
                 useHTML: true,
-                overflow: 'allow'
-            }
+                overflow: 'allow',
+                format: '{value:.2f}'
+            },
+            min: 2.55,
+            max: 2.65,
+            tickAmount: 6
         },
         credits: {
             enabled: false
         },
         tooltip: {
             shadow: false,
-            padding: 10
+            padding: 10,
         },
+        annotations: [{
+            labels: [{
+                point: {
+                    x: 1567900800000, // timestamp
+                    y: 2.5623, // value
+                    xAxis: 0, // yAxis INDEX
+                    yAxis: 0 // xAxis INDEX
+                },
+                text: 'Attacks in <br> Saudi Arabia',
+                y: -30,
+                shape: 'connector',
+                x: 15   
+            }],
+            shapes: [{
+                point: {
+                    x: 1567900800000, // timestamp
+                    y: 2.5623, // value
+                    xAxis: 0, // yAxis INDEX
+                    yAxis: 0 // xAxis INDEX
+                  },
+                type: 'circle',
+                r: 5
+            }],
+        }],
         responsive: {
             rules: [{
               condition: {
@@ -101,6 +120,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 tooltip: {
                     enabled: false
+                },
+                xAxis: {
+                    labels: {
+                        format: '{value:%m/%d}'
+                    },
                 }
               }
             }]

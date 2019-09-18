@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 overflow: 'allow',
                 format: '{value:.2f}'
             },
-            min: 2.55,
-            max: 2.65,
+            min: 2.52,
+            max: 2.66,
             tickAmount: 6
         },
         credits: {
